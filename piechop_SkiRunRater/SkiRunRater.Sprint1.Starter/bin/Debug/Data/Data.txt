@@ -1,4 +1,7 @@
 1,Buck,325
 2,Buckaroo,325
-3,Hoot Owl,325
+3,Hoot Owl,300
 4,Shelburg's Chute,325
+5,OldNew,200
+6,NewRun,100
+7,NewerName,300

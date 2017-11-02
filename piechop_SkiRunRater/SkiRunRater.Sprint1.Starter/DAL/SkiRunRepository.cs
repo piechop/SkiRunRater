@@ -84,10 +84,14 @@ namespace SkiRunRater
         /// <param name="skiRun"></param>
         public void InsertSkiRun(SkiRun skiRun)
         {
-            string skiRunString;
+            //string skiRunString;
 
-            skiRunString = skiRun.ID + "," + skiRun.Name + "," + skiRun.Vertical;
-
+            if(skiRun!=null)
+            {
+                //skiRunString = skiRun.ID + "," + skiRun.Name + "," + skiRun.Vertical;
+                _skiRuns.Add(skiRun);
+                WriteSkiRunsData();
+            }
 
         }
 
@@ -114,7 +118,19 @@ namespace SkiRunRater
         /// <param name="skiRun">ski run object</param>
         public void UpdateSkiRun(SkiRun skiRun)
         {
-
+            if(skiRun!=null)
+            {
+                foreach(SkiRun run in _skiRuns)
+                {
+                    if(run.ID==skiRun.ID)
+                    {
+                        run.Name = skiRun.Name;
+                        run.Vertical = skiRun.Vertical;
+                        break;
+                    }
+                }
+                WriteSkiRunsData();
+            }
         }
 
         /// <summary>

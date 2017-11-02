@@ -38,10 +38,11 @@ namespace SkiRunRater
 
             using (skiRunRepository)
             {
-                List<SkiRun> skiRuns = skiRunRepository.GetSkiAllRuns();
 
                 while (active)
                 {
+                    List<SkiRun> skiRuns = skiRunRepository.GetSkiAllRuns();
+
                     AppEnum.ManagerAction userActionChoice;
 
                     userActionChoice = ConsoleView.GetUserActionChoice();
@@ -58,13 +59,13 @@ namespace SkiRunRater
                             ConsoleView.DisplaySkiRunDetail(skiRuns);
                             break;
                         case AppEnum.ManagerAction.DeleteSkiRun:
-                            ConsoleView.DisplayDeleteRecord(skiRuns);
+                            skiRunRepository.DeleteSkiRun(ConsoleView.DisplayDeleteRecord(skiRuns));
                             break;
                         case AppEnum.ManagerAction.AddSkiRun:
-                            ConsoleView.DisplayAddRecord(skiRuns);
+                            skiRunRepository.InsertSkiRun(ConsoleView.DisplayAddRecord(skiRuns));
                             break;
                         case AppEnum.ManagerAction.UpdateSkiRun:
-                            ConsoleView.DisplayUpdateRecord(skiRuns);
+                            skiRunRepository.UpdateSkiRun(ConsoleView.DisplayUpdateRecord(skiRuns));
                             break;
                         case AppEnum.ManagerAction.QuerySkiRunsByVertical:
                             ConsoleView.DisplayVerticalQuery(skiRuns);

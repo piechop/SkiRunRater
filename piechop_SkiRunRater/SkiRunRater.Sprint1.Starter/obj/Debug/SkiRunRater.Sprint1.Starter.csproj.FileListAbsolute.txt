@@ -28,3 +28,10 @@ C:\Users\Paul Jr\Documents\Paul\Classes\CIT255\SkiRunRater.Sprint1.Starter\SkiRu
 C:\Users\Paul Jr\Documents\Paul\Classes\CIT255\SkiRunRater.Sprint1.Starter\SkiRunRater.Sprint1.Starter\bin\Debug\SkiRunRater.Sprint1.Starter.exe.config
 C:\Users\Paul Jr\Documents\Paul\Classes\CIT255\SkiRunRater.Sprint1.Starter\SkiRunRater.Sprint1.Starter\bin\Debug\SkiRunRater.Sprint1.Starter.exe
 C:\Users\Paul Jr\Documents\Paul\Classes\CIT255\SkiRunRater.Sprint1.Starter\SkiRunRater.Sprint1.Starter\bin\Debug\SkiRunRater.Sprint1.Starter.pdb
+C:\Users\piechop\Desktop\SkiRunRater-master\SkiRunRater-master\piechop_SkiRunRater\SkiRunRater.Sprint1.Starter\obj\Debug\SkiRunRater.Sprint1.Starter.csprojResolveAssemblyReference.cache
+C:\Users\piechop\Desktop\SkiRunRater-master\SkiRunRater-master\piechop_SkiRunRater\SkiRunRater.Sprint1.Starter\obj\Debug\SkiRunRater.Sprint1.Starter.csproj.CoreCompileInputs.cache
+C:\Users\piechop\Desktop\SkiRunRater-master\SkiRunRater-master\piechop_SkiRunRater\SkiRunRater.Sprint1.Starter\obj\Debug\SkiRunRater.Sprint1.Starter.exe
+C:\Users\piechop\Desktop\SkiRunRater-master\SkiRunRater-master\piechop_SkiRunRater\SkiRunRater.Sprint1.Starter\obj\Debug\SkiRunRater.Sprint1.Starter.pdb
+C:\Users\piechop\Desktop\SkiRunRater-master\SkiRunRater-master\piechop_SkiRunRater\SkiRunRater.Sprint1.Starter\bin\Debug\SkiRunRater.Sprint1.Starter.exe.config
+C:\Users\piechop\Desktop\SkiRunRater-master\SkiRunRater-master\piechop_SkiRunRater\SkiRunRater.Sprint1.Starter\bin\Debug\SkiRunRater.Sprint1.Starter.exe
+C:\Users\piechop\Desktop\SkiRunRater-master\SkiRunRater-master\piechop_SkiRunRater\SkiRunRater.Sprint1.Starter\bin\Debug\SkiRunRater.Sprint1.Starter.pdb

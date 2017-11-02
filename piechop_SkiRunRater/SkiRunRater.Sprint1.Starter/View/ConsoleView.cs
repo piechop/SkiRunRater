@@ -372,7 +372,7 @@ namespace SkiRunRater
             //RedirectMenu(redirect,runs);
         }
 
-        public static void DisplayAddRecord(List<SkiRun> runs)
+        public static SkiRun DisplayAddRecord(List<SkiRun> runs)
         {
             SkiRun record = new SkiRun();
             
@@ -384,12 +384,31 @@ namespace SkiRunRater
                     {
                         if (ValidateNewRecord(record, AppEnum.ManagerAction.AddSkiRun, runs))
                         {
-                            runs.Add(record);
-                            DisplayAllSkiRuns(runs);
+                            //runs.Add(record);
+                            //DisplayAllSkiRuns(runs);
+                            //DisplayContinuePrompt();
+                        }
+                        else
+                        {
+                            record = null;
                         }
                     }
+                    else
+                    {
+                        record = null;
+                    }
+                }
+                else
+                {
+                    record = null;
                 }
             }
+            else
+            {
+                record = null;
+            }
+
+            return record;
         }
 
         private static bool DisplayEnterName(SkiRun record, AppEnum.ManagerAction redirect, List<SkiRun> runs)
@@ -420,7 +439,7 @@ namespace SkiRunRater
             //RedirectMenu(redirect,runs);
         }
 
-        private static void IDRecordExists(SkiRun record, AppEnum.ManagerAction redirect, List<SkiRun> runs)
+        private static SkiRun IDRecordExists(SkiRun record, AppEnum.ManagerAction redirect, List<SkiRun> runs)
         {
             DisplayReset();
             Console.WriteLine("ID number "+record.ID + " already exists.\nWould you like to modify this record? (y/n)");
@@ -429,6 +448,7 @@ namespace SkiRunRater
             {
                 DisplayUpdateRecordDetails(record, redirect,runs);
             }
+            return record;
         }
 
         private static bool DisplayEnterID(SkiRun record, AppEnum.ManagerAction redirect, List<SkiRun> runs)
@@ -448,7 +468,7 @@ namespace SkiRunRater
                 }
                 else
                 {
-                    IDRecordExists(run, redirect,runs);
+                    record = IDRecordExists(run, redirect,runs);
                 }
                 
             }
@@ -529,32 +549,35 @@ namespace SkiRunRater
             return isYes;
         }
 
-        public static void DisplayDeleteRecord(List<SkiRun> runs)
+        public static int DisplayDeleteRecord(List<SkiRun> runs)
         {
             DisplayReset();
             Console.WriteLine("Enter the ID of the record you wish to delete.");
-            int ID;
+            int ID = -1;
             if (int.TryParse(Console.ReadLine(), out ID))
             {
                 SkiRun record = CheckRunExists(ID,runs);
 
                 if (record != null)
                 {
-                    DisplayDeleteValidation(record, runs);
+                    ID = DisplayDeleteValidation(record, runs);
                 }
                 else
                 {
                     DisplaySkiRunNotFound(ID.ToString(), AppEnum.ManagerAction.DeleteSkiRun, runs);
+                    ID = -1;
                 }
             }
             else
             {
                 DisplayInvalidInput(AppEnum.ManagerAction.None, runs);
             }
+            return ID;
         }
 
-        private static List<SkiRun> DisplayDeleteValidation(SkiRun record,List<SkiRun> runs)
+        private static int DisplayDeleteValidation(SkiRun record,List<SkiRun> runs)
         {
+            int ID = -1;
             DisplayReset();
             Console.WriteLine("Delete this record? (y/n)");
             Console.WriteLine("ID: " + record.ID);
@@ -563,11 +586,12 @@ namespace SkiRunRater
 
             if (getYesValidation(Console.ReadLine(), AppEnum.ManagerAction.DeleteSkiRun,runs))
             {
-                runs.Remove(record);
+                ID = record.ID;
+                //runs.Remove(record);
                 DisplayDeleteSuccess(runs);
             }
 
-            return runs;
+            return ID;
         }
 
         private static void DisplayDeleteSuccess(List<SkiRun> runs)
@@ -578,14 +602,15 @@ namespace SkiRunRater
             //RedirectMenu(AppEnum.ManagerAction.None,runs);
         }
 
-        public static void DisplayUpdateRecord(List<SkiRun> runs)
+        public static SkiRun DisplayUpdateRecord(List<SkiRun> runs)
         {
+            SkiRun record = null;
             DisplayReset();
             Console.WriteLine("Whose record would you like to update?");
             int ID;
             if (int.TryParse(Console.ReadLine(), out ID))
             {
-                SkiRun record = CheckRunExists(ID,runs);
+                record = CheckRunExists(ID,runs);
 
                 if (record != null)
                 {
@@ -600,6 +625,7 @@ namespace SkiRunRater
             {
                 DisplayInvalidInput(AppEnum.ManagerAction.None, runs);
             }
+            return record;
         }
 
         private static void DisplayUpdateRecordDetails(SkiRun record, AppEnum.ManagerAction redirect, List<SkiRun> runs)
@@ -612,9 +638,9 @@ namespace SkiRunRater
             Console.WriteLine("Vertical: "+record.Vertical);
 
             Console.WriteLine("\nWhat would you like to update?");
-            Console.WriteLine("1. ID");
-            Console.WriteLine("2. Name");
-            Console.WriteLine("3. Vertical");
+            //Console.WriteLine("1. ID");
+            Console.WriteLine("1. Name");
+            Console.WriteLine("2. Vertical");
 
             int userChoice;
 
@@ -622,13 +648,13 @@ namespace SkiRunRater
             {
                 switch(userChoice)
                 {
+                    //case 1:
+                        //UpdateID(record, AppEnum.ManagerAction.UpdateSkiRun,runs);
+                        //break;
                     case 1:
-                        UpdateID(record, AppEnum.ManagerAction.UpdateSkiRun,runs);
-                        break;
-                    case 2:
                         UpdateName(record, AppEnum.ManagerAction.UpdateSkiRun, runs);
                         break;
-                    case 3:
+                    case 2:
                         UpdateVertical(record, AppEnum.ManagerAction.UpdateSkiRun, runs); 
                         break;
                     default:
@@ -649,7 +675,8 @@ namespace SkiRunRater
 
             if (ValidateNewRecord(record, redirect,runs))
             {
-                DisplayAllSkiRuns(runs);
+                //DisplayAllSkiRuns(runs);
+                //DisplayContinuePrompt();
             }
             else
             {
@@ -664,7 +691,8 @@ namespace SkiRunRater
 
             if (ValidateNewRecord(record, redirect,runs))
             {
-                DisplayAllSkiRuns(runs);
+                //DisplayAllSkiRuns(runs);
+                //DisplayContinuePrompt();
             }
             else
             {
@@ -679,7 +707,8 @@ namespace SkiRunRater
 
             if (ValidateNewRecord(record, redirect,runs))
             {
-                DisplayAllSkiRuns(runs);
+                //DisplayAllSkiRuns(runs);
+                //DisplayContinuePrompt();
             }
             else
             {
